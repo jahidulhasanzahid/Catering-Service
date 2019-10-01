@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Multi Auth
+                    Multi User Login System.
                 </div>
             </div>
         </div>
