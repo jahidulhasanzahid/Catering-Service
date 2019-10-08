@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->type == 1){
-           return view('home');
+        $user = User::orderBy('id','desc')->get();
+        return view('home',compact('user'));
         }
         else{
             return back();

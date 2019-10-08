@@ -14,8 +14,26 @@
                         </div>
                     @endif
 
-                    You are Dokandar
+
+
+                    @if(Auth::user())
+                    
+                    @if(Auth::user()->status == 'pending')
+                    <div>Your Account is now Pending.</div>
+                    @else(Auth::user()->status == 'Active')
+
+                    <h1>Add Product</h1>
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleProductName">Product Name</label>
+                        <input type="email" class="form-control" id="exampleProductName" placeholder="Enter Product Name">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
+                @endif
+                @endif
+
             </div>
         </div>
     </div>
