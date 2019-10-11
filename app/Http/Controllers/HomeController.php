@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Image;
+use File;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -27,7 +30,8 @@ class HomeController extends Controller
     {
         if(Auth::user()->type == 1){
         $user = User::orderBy('id','desc')->get();
-        return view('home',compact('user'));
+        $product = Product::orderBy('id','desc')->get();
+        return view('home')->with('user',$user)->with('product',$product);
         }
         else{
             return back();

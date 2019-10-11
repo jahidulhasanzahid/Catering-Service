@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/customer', 'HomeController@index')->name('');
 Route::get('/catering-service', 'HomeController@index2')->name('');
-
+Route::post('/product.store','ProductController@ProductStore')->name('product.store');
 
 
 
