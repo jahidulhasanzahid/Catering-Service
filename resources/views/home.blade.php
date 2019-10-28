@@ -1,34 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    Food Item. <br>
-                    @foreach($product as $products)
-                    <div class="card" style="width: 18rem;">
-                      <img class="card-img-top" src="{!! asset('images/product/'.$products->image) !!}" alt="Card image cap">
-                      <div class="card-body">
-                        <h4>Shop Name: {{ $products->shopName }}</h4>
-                        <h4>Item Name: {{ $products->foodItemName }}</h4>
-                        <p class="card-text">{{ $products->foodDetails}}</p>
-                        <i>Unit Price: {{ $products->foodPrice }} BDT</i>
-                      </div>
+<!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <div class="breadcrumb-title">Products</div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Products</li>
+                            </ul>
+                        </nav>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- breadcrumb area end -->
+
+<!-- product trend start -->
+    <div class="product-trend-area pt-96 pb-54 pt-sm-62 pb-sm-36">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title mb-40">
+                        <span>Food</span>
+                        <h2>trend</h2>
+                    </div>
+                </div>
+            </div> <!-- section title end -->
+            
+            <div class="product-trend-carousel slick-arrow-style">
+                @foreach($product as $products)
+                <div class="product-item text-center">
+                    <div class="product-thumb">
+                        <a href=""><img src="assets/img/product/product-img1.jpg"
+                                alt=""></a>
+                    </div>
+                    <div class="product-content">
+                        <div class="tag-cate">
+                            <a href="">{{ $products->shopName }}</a>
+                        </div>
+                        <div class="product-name">
+                            <a href="">{{ $products->shopName }}</a>
+                            <em>{{ $products->foodDetails}}</em>
+                        </div>
+                        <div class="price-box">
+                            <span class="regular-price">{{ $products->foodPrice }}</span>
+                            <!-- <span class="old-price"><del>$75.00</del></span> -->
+                        </div>
+                    </div>
+                    <div class="product-hover-content">
+                        <div class="add-to-cart">
+                            <a href="#"><i class="icon-handbag"></i></a>
+                        </div>
+                    </div>
+                </div> <!-- end single item -->
+                @endforeach
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <!-- product trend end -->
+
+
+
 @endsection

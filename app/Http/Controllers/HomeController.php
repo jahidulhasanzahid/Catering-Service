@@ -26,6 +26,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function welcome(){
+         $product = Product::orderBy('id','desc')->get();
+         return view('welcome')->with('product',$product);
+    }
     public function index()
     {
         if(Auth::user()->type == 1){
