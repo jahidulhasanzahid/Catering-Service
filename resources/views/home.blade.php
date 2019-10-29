@@ -37,8 +37,7 @@
                 @foreach($product as $products)
                 <div class="product-item text-center">
                     <div class="product-thumb">
-                        <a href=""><img src="assets/img/product/product-img1.jpg"
-                                alt=""></a>
+                        <a href=""><img src="{!! asset('images/product/'.$products->image) !!}" alt=""></a>
                     </div>
                     <div class="product-content">
                         <div class="tag-cate">
@@ -46,6 +45,7 @@
                         </div>
                         <div class="product-name">
                             <a href="">{{ $products->shopName }}</a>
+                            <p>{{ $products->category}}</p>
                             <em>{{ $products->foodDetails}}</em>
                         </div>
                         <div class="price-box">
@@ -61,8 +61,6 @@
                 </div> <!-- end single item -->
                 @endforeach
             </div>
-            <br>
-            <br>
         </div>
     </div>
     <!-- product trend end -->

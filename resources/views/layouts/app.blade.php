@@ -78,7 +78,7 @@
                                     <p>Be a Member First</p>
                                 @else
                                 <ul>
-                                    <li><a class="active" href="#">contact</a></li>
+                                    <li><a class="active" href="{{ url('contact') }}">contact</a></li>
                                     <li><a href="#">my account</a></li>
                                     <li><a href="#">wishlist</a></li>
                                     <li><a href="#">shopping cart</a></li>
@@ -107,51 +107,20 @@
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li class="active"><a href="{{url('/customer')}}">Home</a></li>
-                                        <li class="static"><a href="#">pages <i class="fa fa-angle-down"></i></a>
-<!--                                             <ul class="megamenu dropdown">
-                                                <li class="mega-title"><a href="#">column 01</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">shop grid left sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">column 02</a>
-                                                    <ul>
-                                                        <li><a href="product-details.html">product details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">column 03</a>
-                                                    <ul>
-                                                        <li><a href="cart.html">cart</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">column 04</a>
-                                                    <ul>
-                                                        <li><a href="my-account.html">my-account</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul> -->
+                                        <li class="static"><a href="{{url('/')}}">Home</a>
                                         </li>
-                                        <li><a href="#">shop <i class="fa fa-angle-down"></i></a>
-<!--                                             <ul class="dropdown">
-                                                <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="shop-grid-left-sidebar.html">shop grid left sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">shop list layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="product-details.html">product details</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul> -->
+                                        @if(Auth::user())
+                                        @if(Auth::user()->type == '1')
+                                        <li><a href="{{url('/customer')}}">Product</a></li>
+                                        @else(Auth::user()->type == '2')
+
+                                        <li><a href="{{url('/catering-service')}}">Product</a></li>
+                                        @endif
+                                        @endif
+                                        
+                                        <li><a href="#">Shop</i></a>
                                         </li>
-                                        <li><a href="contact-us.html">Contact us</a></li>
+                                        <li><a href="{{ url('/contact') }}">Contact us</a></li>
                                     </ul>
                                 </nav>
                             </div>

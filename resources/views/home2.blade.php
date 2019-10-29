@@ -62,6 +62,21 @@
                         <input type="text" id="exampleFoodShopName" placeholder="Enter Food Shop Name" name="shopName" required>
                       </div>
                       <div class="single-input-item">
+                          <select id="category" type="text" name="category" required >
+                          <option value="Select User Type">Select Category</option>
+                          <option value="Biriyani">Biriyani</option>
+                          <option value="Fish">Fish</option>
+                          <option value="Vegetables">Vegetables</option>
+                          </select>
+
+                          @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                      </div>
+
+                      <div class="single-input-item">
                         <label for="exampleFoodName">Food Name</label>
                         <input type="text" id="exampleFoodName" placeholder="Enter Food Item Name" name="foodItemName" required>
                       </div>

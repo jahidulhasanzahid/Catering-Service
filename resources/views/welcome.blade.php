@@ -112,7 +112,7 @@
                                     @foreach($product as $products)
                                     <div class="product-item text-center">
                                         <div class="product-thumb">
-                                            <a href=""><img src="assets/img/product/product-img1.jpg"
+                                            <a href=""><img src="{!! asset('images/product/'.$products->image) !!}"
                                                     alt=""></a>
                                         </div>
                                         <div class="product-content">
@@ -120,7 +120,8 @@
                                                 <a href="">{{ $products->shopName }}</a>
                                             </div>
                                             <div class="product-name">
-                                                <a href="">{{ $products->shopName }}</a>
+                                                <a href="">{{ $products->shopName }}</a><br>
+                                                <p>{{$products->category}}</p>
                                                 <em>{{ $products->foodDetails}}</em>
                                             </div>
                                             <div class="price-box">

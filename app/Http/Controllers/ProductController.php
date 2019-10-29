@@ -26,6 +26,7 @@ class ProductController extends Controller
     	$this->validate($request, [
       'shopName' => 'required',
       'foodItemName' => 'required',
+      'category'	=> 'required',
       'image'  => 'required',
       'foodPrice' => 'required',
       'foodDetails' => 'required',
@@ -33,6 +34,7 @@ class ProductController extends Controller
 	    ],
 	    [
 	      'shopName.required'  => 'Please Provide a Shop Name',
+	      'category.required'	=> 'Please Select a category',
 	      'foodItemName.required'  => 'Please Give a Food Item Name',
 	      'image.image'  => 'Please provide a valid image with .jpg, .png, .gif, .jpeg exrension..',
 	      'foodPrice.required'  => 'Please Give a Food Price',
@@ -42,6 +44,7 @@ class ProductController extends Controller
 
 	    $product = new Product();
 	    $product->shopName = $request->shopName;
+	    $product->category = $request->category;
 	    $product->foodItemName = $request->foodItemName;
 	    
 	    

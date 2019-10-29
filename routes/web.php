@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@welcome')->name('');
-
+Route::get('/contact','HomeController@contact')->name('');
 Auth::routes();
 
 Route::get('/customer', 'HomeController@index')->name('');
