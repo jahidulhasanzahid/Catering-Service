@@ -129,11 +129,11 @@
                                                 <!-- <span class="old-price"><del>$75.00</del></span> -->
                                             </div>
                                         </div>
-                                        <div class="product-hover-content">
-                                            <div class="add-to-cart">
-                                                <a href="#"><i class="icon-handbag"></i></a>
-                                            </div>
-                                        </div>
+                                        
+                                                
+                                                @include('partials.cart-button')
+
+                                            
                                     </div> <!-- end single item -->
                                     @endforeach
                                 </div>

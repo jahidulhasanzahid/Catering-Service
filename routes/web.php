@@ -20,6 +20,14 @@ Route::get('/catering-service', 'HomeController@index2')->name('');
 Route::post('/product.store','ProductController@ProductStore')->name('product.store');
 
 
+Route::get('/carts', 'CartsController@index')->name('carts');
+Route::post('/carts/store', 'CartsController@store')->name('carts.store');
+Route::post('/carts/update/{id}', 'CartsController@update')->name('carts.update');
+Route::post('/carts/delete/{id}', 'CartsController@destroy')->name('carts.delete');
+
+Route::get('/checkout', 'CheckoutsController@index')->name('checkouts');
+Route::post('/checkout/store', 'CheckoutsController@store')->name('checkouts.store');
+
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::get('/deshboard', 'Admin\AdminController@index')->name('backend.index');

@@ -136,35 +136,12 @@
                                     </div>
                                 </div>
                                 <div class="cart-toggler">
-                                    <div class="cart-toggler-icon">
-                                        <button><i class="icon-handbag"></i>
-                                            <span class="add-qunatity">2</span>
+                                     <a class="nav-link" href="{{ route('carts') }}">
+                                        <button class="btn btn-danger">
+                                         <i class="icon-handbag"></i>
+                                          <span class="add-qunatity">{{ App\Cart::totalItems() }}</span>
                                         </button>
-                                    </div>
-                                    <ul class="cart-list">
-                                        <li>
-                                            <div class="cart-img">
-                                                <a href="product-details.html"><img src="assets/img/cart/cart-1.jpg" alt=""></a>
-                                                <span class="cart-quantity">1x</span>
-                                            </div>
-                                            <div class="cart-info">
-                                                <h4><a href="product-details.html">lemon grass</a></h4>
-                                                <span>$ 60.00</span>
-                                                <p>size: M</p>
-                                                <p>color: yellow</p>
-                                            </div>
-                                            <div class="del-icon">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </li>
-                                        <li class="mini-cart-price">
-                                            <span class="subtotal">subtotal : </span>
-                                            <span class="subtotal-price">$88.66</span>
-                                        </li>
-                                        <li class="checkout-btn">
-                                            <a href="#">checkout</a>
-                                        </li>
-                                    </ul>
+                                      </a>
                                 </div>
                             </div>
                         </div> <!-- end mini cart area -->

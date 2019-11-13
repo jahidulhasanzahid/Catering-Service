@@ -28,8 +28,8 @@
                 <div class="col-lg-6">
                     <div class="contact-message pt-62 pb-68 pl-80 mr-30 pl-lg-30 pl-md-30 pl-sm-16 mr-sm-16 pt-sm-44 pb-sm-50">
                         <h2>Leave Your Message</h2>
-                        <form id="contact-form" action="" method="post" class="contact-form">
-                            @csrf
+                        <form id="contact-form" action="" method="" class="contact-form">
+                            
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <input name="first_name" placeholder="Name *" type="text" required>    
@@ -54,6 +54,7 @@
                                 <div class="col-12 d-flex justify-content-center">
                                     <p class="form-messege"></p>
                                 </div>
+                                
                             </div>
                         </form>    
                     </div> 
