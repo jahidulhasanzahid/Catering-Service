@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 09:41 PM
+-- Generation Time: Nov 18, 2019 at 07:53 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -62,7 +62,8 @@ INSERT INTO `carts` (`id`, `product_id`, `user_id`, `order_id`, `ip_address`, `p
 (1, 6, 6, 1, '127.0.0.1', 2, '2019-11-13 13:52:41', '2019-11-13 14:32:06'),
 (2, 6, 6, 2, '127.0.0.1', 1, '2019-11-13 14:33:43', '2019-11-13 14:35:10'),
 (3, 6, 6, 3, '127.0.0.1', 1, '2019-11-13 14:36:56', '2019-11-13 14:39:05'),
-(4, 4, 6, 3, '127.0.0.1', 1, '2019-11-13 14:37:07', '2019-11-13 14:39:05');
+(4, 4, 6, 3, '127.0.0.1', 1, '2019-11-13 14:37:07', '2019-11-13 14:39:05'),
+(6, 5, 7, 4, '127.0.0.1', 1, '2019-11-18 12:45:08', '2019-11-18 12:45:24');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,8 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `ip_address`, `name`, `phone_no`, `shipping_address`, `email`, `message`, `is_paid`, `is_completed`, `is_seen_by_admin`, `product_quantity`, `created_at`, `updated_at`, `title`, `total_price`) VALUES
 (1, 6, '127.0.0.1', 'Jahidul', '01630765770', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:32:06', '2019-11-13 14:32:06', NULL, NULL),
 (2, 6, '127.0.0.1', 'test', '4546', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:35:10', '2019-11-13 14:35:10', NULL, NULL),
-(3, 6, '127.0.0.1', 'test', '45747', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:39:05', '2019-11-13 14:39:05', NULL, NULL);
+(3, 6, '127.0.0.1', 'test', '45747', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:39:05', '2019-11-13 14:39:05', NULL, NULL),
+(4, 7, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-18 12:45:24', '2019-11-18 12:45:24', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,9 +160,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `shopName`, `category`, `foodItemName`, `image`, `foodPrice`, `foodDetails`, `created_at`, `updated_at`) VALUES
-(4, 'foysal\'s Dine', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36'),
-(5, 'forhad\'s Dine', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25'),
-(6, 'Jahidul\'s Dine 2', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22');
+(4, '', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36'),
+(5, '', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25'),
+(6, '', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22'),
+(7, '', 'Biriyani', 'Dinner Bangla Joss', '1574102801.jpg', 'Jahidul\'s Dine', 'Jahidul\'s Dine', '2019-11-18 12:46:41', '2019-11-18 12:46:41'),
+(9, 'Jahidul\'s Dine 2', 'Fish', 'Dinner Bangla Joss', '1574103178.jpg', 'Jahidul\'s Dine 2', 'Jahidul\'s Dine 2', '2019-11-18 12:52:58', '2019-11-18 12:52:58');
 
 -- --------------------------------------------------------
 
@@ -205,7 +209,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `type`, `email_verified_at`, `passwo
 (3, 'Forhad', 'forhad@gmail.com', 2, NULL, '$2y$10$tHl7j/2Lj.2aZnIhRkPsEeOmkOjA02AgAo0/gp3YCBI17kMHQ1xe6', 'Active', NULL, '2019-10-11 13:48:22', '2019-10-11 13:48:40'),
 (4, 'sagor', 'sagor@yahoo.com', 1, NULL, '$2y$10$NBjW5NGr0ujD8NHF2L/PhO4Q5TI41hkPXnVcvCFxKKqZwtgCFaVgO', 'pending', NULL, '2019-10-28 11:05:17', '2019-10-28 11:05:17'),
 (5, 'Jahidul Hasan Zahid', 'jahidulhasanzahid71@gmail.com', 2, NULL, '$2y$10$0zO8VdJ0Hdy6WH8nBMoth.v.jdcI9KMRggnz0Jpt7S4GKz0HxCSgO', 'Active', NULL, '2019-11-12 11:53:42', '2019-11-12 11:53:49'),
-(6, 'Jahidul Hasan Zahid', 'jahidulhasanzahid071@gmail.com', 1, NULL, '$2y$10$yMHMSXdxG5kCQC8MeO2aCesGQzHMOj5pymEZmM7NkSok9Qbkpw7RK', 'pending', NULL, '2019-11-12 11:54:46', '2019-11-12 11:54:46');
+(6, 'Jahidul Hasan Zahid', 'jahidulhasanzahid071@gmail.com', 1, NULL, '$2y$10$yMHMSXdxG5kCQC8MeO2aCesGQzHMOj5pymEZmM7NkSok9Qbkpw7RK', 'pending', NULL, '2019-11-12 11:54:46', '2019-11-12 11:54:46'),
+(7, 'Rakiba Sultana', 'rakiba11@gmail.com', 2, NULL, '$2y$10$JVWlF2pezQ7DlJRWsNtIj.CVmvV1rnwmu20a5cpBgADvt7DOrazpu', 'Active', NULL, '2019-11-18 12:42:59', '2019-11-18 12:44:19');
 
 --
 -- Indexes for dumped tables
@@ -246,8 +251,7 @@ ALTER TABLE `password_resets`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `products_shopname_unique` (`shopName`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `settings`
@@ -276,7 +280,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -288,13 +292,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -306,7 +310,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
