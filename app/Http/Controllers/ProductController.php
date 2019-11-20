@@ -57,7 +57,7 @@ class ProductController extends Controller
 	        $product->image = $img;
 	    }
 	    
-	    $product->foodPrice = $request->shopName;
+	    $product->foodPrice = $request->foodPrice;
 	    $product->foodDetails = $request->shopName;
 	    $product->save();
 

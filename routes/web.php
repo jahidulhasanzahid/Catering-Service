@@ -28,6 +28,8 @@ Route::post('/carts/delete/{id}', 'CartsController@destroy')->name('carts.delete
 Route::get('/checkout', 'CheckoutsController@index')->name('checkouts');
 Route::post('/checkout/store', 'CheckoutsController@store')->name('checkouts.store');
 
+Route::get('/profile','ProfileController@profile')->name('profile');
+
 
 Route::group(['prefix' => 'admin'], function(){
 	Route::get('/deshboard', 'Admin\AdminController@index')->name('backend.index');

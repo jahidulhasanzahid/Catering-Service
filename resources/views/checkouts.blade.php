@@ -7,7 +7,10 @@
       <hr>
       <div class="row">
         <div class="col-md-7 border-right">
-          
+          @php
+          $totalPrice = 0;
+          $total_price = 0;
+          @endphp
 
           @foreach (App\Cart::totalCarts() as $cart)
           <?php
@@ -26,20 +29,13 @@
               <strong>{{ $priceShow }} taka </strong>
               - {{ $cart->product_quantity }} item
             </p>
+            @php $totalPrice = $priceShow*$cart->product_quantity;
+                 $total_price = $total_price+$totalPrice; @endphp
           @endforeach
         </div>
         <div class="col-md-5">
-          @php
-          $total_price = 0;
-          @endphp
-          @foreach (App\Cart::totalCarts() as $cart)
-            @php
-            $total_price += $priceShow * $cart->product_quantity;
-            @endphp
-          @endforeach
           <p>Total Price : <strong>{{ $total_price }}</strong> Taka</p>
           <p>Total Price with shipping cost: <strong>{{ $total_price + 50 }}</strong> Taka [Inside of Dhaka]</p>
-          <p>Total Price with shipping cost: <strong>{{ $total_price + 150 }}</strong> Taka [Outside of Dhaka]</p>
         </div>
       </div>
       <p>

@@ -79,10 +79,9 @@
                                 @else
                                 <ul>
                                     <li><a class="active" href="{{ url('contact') }}">contact</a></li>
-                                    <li><a href="#">my account</a></li>
-                                    <li><a href="#">wishlist</a></li>
-                                    <li><a href="#">shopping cart</a></li>
-                                    <li><a href="#">checkout</a></li>
+                                    <li><a href="{{url('/profile')}}">my account</a></li>
+                                    <li><a href="{{url('/carts')}}">shopping cart</a></li>
+                                    <li><a href="{{url('/checkout')}}">checkout</a></li>
                                 </ul>
                                 @endguest
                             </div>
@@ -154,6 +153,10 @@
     </header>
 
         <div class="container-fluid">
+            <div class="container">
+            @include('layouts/flash-message')
+            </div>
+
             @yield('content')
         </main>
 
