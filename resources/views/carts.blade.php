@@ -33,8 +33,10 @@
                     $title = DB::table('products')->where('id', $value)->get();
 
                     foreach($title as $t){
+
                       $titleShow = $t->foodItemName;
                       $priceShow = $t->foodPrice;
+                      
                     }
 
                  ?>

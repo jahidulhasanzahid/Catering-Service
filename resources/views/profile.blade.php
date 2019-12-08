@@ -84,7 +84,7 @@
                                                     </thead>
                                                     <tbody>
                                                     	@foreach($orders as $order)
-                                                    
+                                                    @if($order->user_id == Auth::User()->id || $order->shop_id == Auth::User()->id)
                                                         <tr>
                                                             <td>{{ $order->id }}</td>
                                                             <td>{{ $order->name }}</td>
@@ -93,6 +93,7 @@
                                                             <td>{{ $order->shipping_address }}</td>
                                                             <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
                                                         </tr>
+                                                    @endif
                                                          @endforeach
                                                     </tbody>
                                                 </table>
@@ -224,6 +225,10 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- my account wrapper end -->
 
 

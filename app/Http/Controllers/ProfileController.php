@@ -25,7 +25,6 @@ class ProfileController extends Controller
                   ->join('users','carts.user_id','=','users.id')
                   ->join('products','carts.product_id','=','products.id')
                   ->select('orders.*','products.*')
-                  ->where('carts.user_id',Auth::user()->id)
                   ->get();
 
     	return view('profile',compact('orders'));

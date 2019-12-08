@@ -19,6 +19,7 @@
                     $title = DB::table('products')->where('id', $value)->get();
 
                     foreach($title as $t){
+                      $shop_id = $t->shop_id;
                       $titleShow = $t->foodItemName;
                       $priceShow = $t->foodPrice;
                     }
@@ -47,7 +48,7 @@
 
       <form method="POST" action="{{ route('checkouts.store') }}">
         @csrf
-
+        <input type="hidden" name="shop_id" value="{{ $shop_id }}">
         <div class="form-group row">
           <label for="name" class="col-md-4 col-form-label text-md-right">Reciever Name</label>
 

@@ -53,10 +53,11 @@ class CheckoutsController extends Controller
     $order->shipping_address = $request->shipping_address;
     $order->message = $request->message;
     $order->ip_address = request()->ip();
+    $order->shop_id = $request->shop_id;
     if (Auth::check()) {
       $order->user_id = Auth::id();
     }
-
+    $order->shop_id = $request->shop_id;
     $order->save();
 
     foreach (Cart::totalCarts() as $cart) {
@@ -65,7 +66,7 @@ class CheckoutsController extends Controller
     }
 
     session()->flash('success', 'Your order has taken successfully !!! Please wait admin will soon confirm it.');
-    return back();
+    return view('order-confirm');
   }
 
     /**
