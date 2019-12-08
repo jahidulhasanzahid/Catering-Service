@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin'], function(){
 	  Route::get('/', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
 	  Route::post('/adminlogin-submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
 	  Route::post('/adminlogout-submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
-	  Route::get('/user-list', 'Admin\UserController@userList')->name('admin.user.list');
+	  Route::get('/user-list', 'Admin\AdminController@userList')->name('admin.user.list');
 
-	  Route::post('/user-list-update/{id}', 'Admin\UserController@userListUpdate')->name('user.list.update');
+	  Route::post('/user-list-update/{id}', 'Admin\AdminController@userListUpdate')->name('user.list.update');
 });

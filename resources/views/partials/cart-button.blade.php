@@ -1,3 +1,4 @@
+@if(Auth::User()->type== '1')
 <div class="product-hover-content">
 	<div class="add-to-cart">
 		<form action="{{ route('carts.store') }}" method="post">
@@ -7,3 +8,10 @@
 		</form>
 	</div>
 </div>
+@else
+<div class="product-hover-content">
+	<div class="add-to-cart">
+		<p>Only Customer Can Buy</p>
+	</div>
+</div>
+@endif
