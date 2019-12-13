@@ -8,7 +8,7 @@ use App\User;
 use App\Product;
 use Image;
 use File;
-
+use DB;
 class ProductController extends Controller
 {
     /**
@@ -65,5 +65,12 @@ class ProductController extends Controller
 	    session()->flash('success', 'A new Food Item has added successfully !!');
 	    return back();
 	    }
+
+
+
+	 public function productdetails($id){
+	 	$products = Product::find($id);
+	 	return view('product-details',compact('products'));
+	 }
 
 }

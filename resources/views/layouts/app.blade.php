@@ -81,7 +81,6 @@
                                     <li><a class="active" href="{{ url('contact') }}">contact</a></li>
                                     <li><a href="{{url('/profile')}}">my account</a></li>
                                     <li><a href="{{url('/carts')}}">shopping cart</a></li>
-                                    <li><a href="{{url('/checkout')}}">checkout</a></li>
                                 </ul>
                                 @endguest
                             </div>
@@ -99,7 +98,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-6">
                             <div class="logo">
-                                <a href="{{url('/')}}"><img src="assets/img/logo/logo.png" alt="brand logo"></a>
+                                <a href="{{url('/')}}"><img src="{{asset('assets/img/logo/logo.png') }}" alt="brand logo"></a>
                             </div>
                         </div> <!-- end logo area -->
                         <div class="col-lg-8 d-none d-lg-block">
@@ -117,7 +116,7 @@
                                         @endif
                                         @endif
                                         
-                                        <li><a href="#">Shop</i></a>
+                                        <li><a href="{{ url('shops') }}">Shop</a>
                                         </li>
                                         <li><a href="{{ url('/contact') }}">Contact us</a></li>
                                     </ul>

@@ -10,6 +10,7 @@ use App\User;
 use App\Order;
 use App\Product;
 use DB;
+use App\Userinfo;
 
 class ProfileController extends Controller
 {
@@ -28,5 +29,33 @@ class ProfileController extends Controller
                   ->get();
 
     	return view('profile',compact('orders'));
+    }
+
+
+
+    public function profileupdate(Request $request){
+          $val = DB::table('userinfos')->where('userID',Auth::User()->id)->get();
+
+            if (isset($val)) {
+              $updatePro = DB::table('userinfos')
+                  ->where('userID', Auth::user()->id)
+                  ->update(['phone' => $request->phone,'shopName' => $request->shopName, 'address'=>$request->address,'foodTypeOne'=> $request->foodItemOne,'foodTypeTwo' =>$request->foodItemTwo, 'foodTypeThree' =>$request->foodItemThree, 'foodTypeFour' =>$request->foodItemFour, 'foodTypeFive' =>$request->foodItemFive]);
+            }
+            else{
+            $data = new Userinfo();
+            $data->userID = Auth::user()->id;
+            $data->phone = $request->phone;
+            $data->shopName = $request->shopName;
+            $data->address = $request->address;
+            $data->foodTypeOne = $request->foodItemOne;
+            $data->foodTypeTwo = $request->foodItemTwo;
+            $data->foodTypeThree = $request->foodItemThree;
+            $data->foodTypeFour = $request->foodItemFour;
+            $data->foodTypeFive = $request->foodItemFive;
+          
+            $data->save();
+        }
+            session()->flash('success', 'Your Profile Update successfully !!');
+            return back();
     }
 }

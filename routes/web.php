@@ -12,12 +12,16 @@
 */
 
 Route::get('/', 'HomeController@welcome')->name('');
+Route::get('/shops', 'shopController@shop')->name('shop');
 Route::get('/contact','HomeController@contact')->name('');
+Route::post('/contact/post','HomeController@contactpost')->name('');
 Auth::routes();
 
 Route::get('/customer', 'HomeController@index')->name('');
 Route::get('/catering-service', 'HomeController@index2')->name('');
 Route::post('/product.store','ProductController@ProductStore')->name('product.store');
+Route::get('/product-details/{id}', 'ProductController@productdetails')->name('productdetails');
+
 
 
 Route::get('/carts', 'CartsController@index')->name('carts');
@@ -29,6 +33,7 @@ Route::get('/checkout', 'CheckoutsController@index')->name('checkouts');
 Route::post('/checkout/store', 'CheckoutsController@store')->name('checkouts.store');
 
 Route::get('/profile','ProfileController@profile')->name('profile');
+Route::post('/profile/update','ProfileController@profileupdate')->name('');
 
 
 Route::group(['prefix' => 'admin'], function(){

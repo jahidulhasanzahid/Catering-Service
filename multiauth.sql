@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2019 at 07:53 PM
+-- Generation Time: Dec 11, 2019 at 08:13 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -63,7 +63,16 @@ INSERT INTO `carts` (`id`, `product_id`, `user_id`, `order_id`, `ip_address`, `p
 (2, 6, 6, 2, '127.0.0.1', 1, '2019-11-13 14:33:43', '2019-11-13 14:35:10'),
 (3, 6, 6, 3, '127.0.0.1', 1, '2019-11-13 14:36:56', '2019-11-13 14:39:05'),
 (4, 4, 6, 3, '127.0.0.1', 1, '2019-11-13 14:37:07', '2019-11-13 14:39:05'),
-(6, 5, 7, 4, '127.0.0.1', 1, '2019-11-18 12:45:08', '2019-11-18 12:45:24');
+(6, 5, 7, 4, '127.0.0.1', 1, '2019-11-18 12:45:08', '2019-11-18 12:45:24'),
+(22, 12, 6, 5, '127.0.0.1', 3, '2019-11-20 13:45:04', '2019-11-20 14:04:51'),
+(23, 6, 6, 5, '127.0.0.1', 2, '2019-11-20 13:45:35', '2019-11-20 14:04:51'),
+(25, 5, 4, 6, '127.0.0.1', 1, '2019-12-08 11:36:24', '2019-12-08 11:36:35'),
+(26, 13, 4, 7, '127.0.0.1', 1, '2019-12-08 12:18:46', '2019-12-08 12:24:05'),
+(28, 13, 4, 8, '127.0.0.1', 1, '2019-12-08 12:27:20', '2019-12-08 12:28:16'),
+(29, 12, 4, 9, '127.0.0.1', 1, '2019-12-08 12:30:17', '2019-12-08 12:30:38'),
+(30, 13, 4, 10, '127.0.0.1', 1, '2019-12-08 12:32:40', '2019-12-08 12:32:49'),
+(31, 13, 4, 12, '127.0.0.1', 1, '2019-12-08 12:36:16', '2019-12-08 12:36:25'),
+(34, 13, 4, 16, '127.0.0.1', 1, '2019-12-11 13:07:14', '2019-12-11 13:08:18');
 
 -- --------------------------------------------------------
 
@@ -112,18 +121,31 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total_price` int(11) DEFAULT NULL
+  `total_price` int(11) DEFAULT NULL,
+  `shop_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `ip_address`, `name`, `phone_no`, `shipping_address`, `email`, `message`, `is_paid`, `is_completed`, `is_seen_by_admin`, `product_quantity`, `created_at`, `updated_at`, `title`, `total_price`) VALUES
-(1, 6, '127.0.0.1', 'Jahidul', '01630765770', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:32:06', '2019-11-13 14:32:06', NULL, NULL),
-(2, 6, '127.0.0.1', 'test', '4546', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:35:10', '2019-11-13 14:35:10', NULL, NULL),
-(3, 6, '127.0.0.1', 'test', '45747', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:39:05', '2019-11-13 14:39:05', NULL, NULL),
-(4, 7, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-18 12:45:24', '2019-11-18 12:45:24', NULL, NULL);
+INSERT INTO `orders` (`id`, `user_id`, `ip_address`, `name`, `phone_no`, `shipping_address`, `email`, `message`, `is_paid`, `is_completed`, `is_seen_by_admin`, `product_quantity`, `created_at`, `updated_at`, `title`, `total_price`, `shop_id`) VALUES
+(1, 6, '127.0.0.1', 'Jahidul', '01630765770', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:32:06', '2019-11-13 14:32:06', NULL, NULL, NULL),
+(2, 6, '127.0.0.1', 'test', '4546', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:35:10', '2019-11-13 14:35:10', NULL, NULL, NULL),
+(3, 6, '127.0.0.1', 'test', '45747', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:39:05', '2019-11-13 14:39:05', NULL, NULL, NULL),
+(4, 7, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-18 12:45:24', '2019-11-18 12:45:24', NULL, NULL, NULL),
+(5, 6, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-20 14:04:51', '2019-11-20 14:04:51', NULL, NULL, NULL),
+(6, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 11:36:35', '2019-12-08 11:36:35', NULL, NULL, NULL),
+(7, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:24:05', '2019-12-08 12:24:05', NULL, NULL, 5),
+(8, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:28:16', '2019-12-08 12:28:16', NULL, NULL, 5),
+(9, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:30:37', '2019-12-08 12:30:37', NULL, NULL, NULL),
+(10, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:32:49', '2019-12-08 12:32:49', NULL, NULL, 5),
+(11, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:33:27', '2019-12-08 12:33:27', NULL, NULL, 5),
+(12, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:36:25', '2019-12-08 12:36:25', NULL, NULL, 5),
+(13, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:36:53', '2019-12-08 12:36:53', NULL, NULL, 5),
+(14, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:37:35', '2019-12-08 12:37:35', NULL, NULL, 5),
+(15, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:38:11', '2019-12-08 12:38:11', NULL, NULL, 5),
+(16, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-11 13:08:18', '2019-12-11 13:08:18', NULL, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -152,19 +174,21 @@ CREATE TABLE `products` (
   `foodPrice` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `foodDetails` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `shop_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `shopName`, `category`, `foodItemName`, `image`, `foodPrice`, `foodDetails`, `created_at`, `updated_at`) VALUES
-(4, '', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36'),
-(5, '', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25'),
-(6, '', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22'),
-(7, '', 'Biriyani', 'Dinner Bangla Joss', '1574102801.jpg', 'Jahidul\'s Dine', 'Jahidul\'s Dine', '2019-11-18 12:46:41', '2019-11-18 12:46:41'),
-(9, 'Jahidul\'s Dine 2', 'Fish', 'Dinner Bangla Joss', '1574103178.jpg', 'Jahidul\'s Dine 2', 'Jahidul\'s Dine 2', '2019-11-18 12:52:58', '2019-11-18 12:52:58');
+INSERT INTO `products` (`id`, `shopName`, `category`, `foodItemName`, `image`, `foodPrice`, `foodDetails`, `created_at`, `updated_at`, `shop_id`) VALUES
+(4, '', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36', NULL),
+(5, '', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25', NULL),
+(6, '', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22', NULL),
+(12, 'Jahidul\'s Dine', 'Vegetables', 'Good Food', '1574279086.jpg', '220', 'Jahidul\'s Dine', '2019-11-20 13:44:46', '2019-11-20 13:44:46', NULL),
+(13, 'Jahidul\'s Dine', 'Fish', 'Good Food', '1575828407.jpg', '255', 'Jahidul\'s Dine', '2019-12-08 12:06:48', '2019-12-08 12:06:48', 5),
+(14, 'dfhfg', 'Biriyani', 'Dinner Bangla Joss', '1576090634.jpg', '255', 'dfhfg', '2019-12-11 12:57:15', '2019-12-11 12:57:15', 5);
 
 -- --------------------------------------------------------
 
@@ -280,7 +304,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -292,13 +316,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `settings`

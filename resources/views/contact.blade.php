@@ -28,20 +28,20 @@
                 <div class="col-lg-6">
                     <div class="contact-message pt-62 pb-68 pl-80 mr-30 pl-lg-30 pl-md-30 pl-sm-16 mr-sm-16 pt-sm-44 pb-sm-50">
                         <h2>Leave Your Message</h2>
-                        <form id="contact-form" action="" method="" class="contact-form">
-                            
+                        <form id="contact-form" action="{{ url('contact/post') }}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="first_name" placeholder="Name *" type="text" required>    
+                                    <input name="name" placeholder="Name *" type="text" required>    
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <input name="phone" placeholder="Phone *" type="text" required>   
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="email_address" placeholder="Email *" type="text" required>    
+                                    <input name="email" placeholder="Email *" type="text" required>    
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input name="contact_subject" placeholder="Subject *" type="text">   
+                                    <input name="subject" placeholder="Subject *" type="text">   
                                 </div>
                                <div class="col-12">
                                     <div class="contact2-textarea text-center">
@@ -51,9 +51,7 @@
                                         <button class="sqr-btn" type="submit">Send Message</button> 
                                     </div> 
                                 </div> 
-                                <div class="col-12 d-flex justify-content-center">
-                                    <p class="form-messege"></p>
-                                </div>
+
                                 
                             </div>
                         </form>    

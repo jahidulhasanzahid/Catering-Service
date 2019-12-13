@@ -8,6 +8,7 @@ use App\User;
 use Image;
 use File;
 use App\Product;
+use App\contact;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,18 @@ class HomeController extends Controller
 
 
     public function contact(){
+        return view('contact');
+    }
+
+
+    public function contactpost(Request $request){
+        $message = new contact();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->phone = $request->phone;
+        $message->subject = $request->subject;
+        $message->message = $request->message;
+        $message->save();
         return view('contact');
     }
 
