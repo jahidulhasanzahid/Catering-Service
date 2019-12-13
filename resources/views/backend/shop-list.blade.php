@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     <div class="row justify-content-center">
     	<div class="col-md-4">
@@ -9,6 +10,7 @@
 			      <a class="nav-link" href="{{ url('/admin/user-list') }}">User List</a>
 			      <a class="nav-link" href="{{ url('/admin/shop-list') }}">Shop List</a>
 			      <a class="nav-link" href="{{ url('/admin/messages') }}">Messages</a>
+
 			    </div>
     	</div>
         <div class="col-md-8">
@@ -17,24 +19,26 @@
                 	<table class="table table-bordered">
 					  <thead>
 					    <tr>
-					      <th scope="col">User ID</th>
-					      <th scope="col">User Name</th>
-					      <th scope="col">Status</th>
+					      <th scope="col">Shop ID</th>
+					      <th scope="col">Shop Name</th>
+					      <th scope="col">Address</th>
+					      <th scope="col">Phone</th>
 					      <th scope="col">Action</th>
 					    </tr>
 					  </thead>
 					  <tbody>
 
-					  	@foreach($users as $user)
+					  	@foreach($shops as $shop)
 					    <tr>
-					      <th scope="row">{{ $user->id }}</th>
-					      <td>{{ $user->name }}</td>
-					      <td>{{ $user->status }}</td>
+					      <th scope="row">{{ $shop->id }}</th>
+					      <td>{{ $shop->shopName }}</td>
+					      <td>{{ $shop->address }}</td>
+					      <td>{{ $shop->phone }}</td>
 					      <td>
-						      	<form class="form-inline" action="{{ route('user.list.update', $user->id) }}" method="post">
+						      	<form class="form-inline" action="{{ route('shop.list.delete', $shop->id) }}" method="post">
 	                                @csrf
 	                                <input type="hidden" name="status" />
-	                                <button type="submit" class="btn btn-success">Active</button>
+	                                <button type="submit" class="btn btn-danger">Delete</button>
 	                             </form>
                            </td>
 					    </tr>

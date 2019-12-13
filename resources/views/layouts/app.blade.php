@@ -80,7 +80,11 @@
                                 <ul>
                                     <li><a class="active" href="{{ url('contact') }}">contact</a></li>
                                     <li><a href="{{url('/profile')}}">my account</a></li>
+                                    @if(Auth::user())
+                                    @if(Auth::user()->type == '1')
                                     <li><a href="{{url('/carts')}}">shopping cart</a></li>
+                                    @endif
+                                    @endif
                                 </ul>
                                 @endguest
                             </div>
@@ -125,14 +129,23 @@
                         </div> <!-- end main menu area -->
                         <div class="col-lg-2 col-6">
                             <div class="header-cart-option">
+                                @if(Auth::user())
                                 <div class="header-search">
                                     <div class="header-search-btn">
                                         <i class="icon-magnifier"></i>
                                     </div>
                                     <div class="search-box">
-                                        <input type="text" placeholder="search product...">
+                                        <form action="{{ url('search') }}" method="get">
+                                            @csrf
+                                            <input type="text" name="search" placeholder="search product...">
+                                            <!-- <button type="submit">Search</button> -->
+                                        </form>
+                                        
                                     </div>
                                 </div>
+                                @endif
+                                @if(Auth::user())
+                                @if(Auth::user()->type == '1')
                                 <div class="cart-toggler">
                                      <a class="nav-link" href="{{ route('carts') }}">
                                         <button class="btn btn-danger">
@@ -141,6 +154,9 @@
                                         </button>
                                       </a>
                                 </div>
+                                @endif
+                                @endif
+
                             </div>
                         </div> <!-- end mini cart area -->
                         <div class="col-12 d-block d-lg-none"><div class="mobile-menu"></div></div>
@@ -157,6 +173,8 @@
             </div>
 
             @yield('content')
+
+            
         </main>
 
 
@@ -204,5 +222,6 @@
     <script src="{{asset('assets/js/ajax-mail.js')}}"></script>
     <!-- Active Js -->
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <script id="dsq-count-scr" src="//foysalshop.disqus.com/count.js" async></script>
 </body>
 </html>

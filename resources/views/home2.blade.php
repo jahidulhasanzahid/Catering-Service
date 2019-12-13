@@ -58,15 +58,21 @@
                     <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                       <div class="single-input-item">
-                        <label for="exampleFoodShopName">Food Shop Name</label>
-                        <input type="text" id="exampleFoodShopName" placeholder="Enter Food Shop Name" name="shopName" required>
+                        @foreach($infos as $info)
+                        <input type="text" id="exampleFoodShopName" value="{{ $info->shopName }}" name="shopName" required style="visibility: hidden;">
+                        @endforeach
                       </div>
                       <div class="single-input-item">
+                        <label for="exampleFoodName">Food Type</label>
                           <select id="category" type="text" name="category" required >
                           <option value="Select User Type">Select Category</option>
-                          <option value="Biriyani">Biriyani</option>
-                          <option value="Fish">Fish</option>
-                          <option value="Vegetables">Vegetables</option>
+                          @foreach($infos as $info)
+                          <option value="{{$info->foodTypeOne}}">{{$info->foodTypeOne}}</option>
+                          <option value="{{$info->foodTypeTwo}}">{{$info->foodTypeTwo}}</option>
+                          <option value="{{$info->foodTypeThree}}">{{$info->foodTypeThree}}</option>
+                          <option value="{{$info->foodTypeFour}}">{{$info->foodTypeFour}}</option>
+                          <option value="{{$info->foodTypeFive}}">{{$info->foodTypeFive}}</option>
+                          @endforeach
                           </select>
 
                           @error('name')
@@ -91,7 +97,6 @@
                       <div class="single-input-item">
                         <label for="exampleFoodDetails">Food Details</label>
                         <textarea cols="5" rows="4" placeholder="Write here about your food details..." name="foodDetails" required>
-                            
                         </textarea>
                       </div>
                       <div class="single-input-item">

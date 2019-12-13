@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container">
     <div class="row justify-content-center">
     	<div class="col-md-4">
@@ -9,6 +10,7 @@
 			      <a class="nav-link" href="{{ url('/admin/user-list') }}">User List</a>
 			      <a class="nav-link" href="{{ url('/admin/shop-list') }}">Shop List</a>
 			      <a class="nav-link" href="{{ url('/admin/messages') }}">Messages</a>
+
 			    </div>
     	</div>
         <div class="col-md-8">
@@ -17,26 +19,22 @@
                 	<table class="table table-bordered">
 					  <thead>
 					    <tr>
-					      <th scope="col">User ID</th>
-					      <th scope="col">User Name</th>
-					      <th scope="col">Status</th>
-					      <th scope="col">Action</th>
+					      <th scope="col">#ID</th>
+					      <th scope="col">Name</th>
+					      <th scope="col">Email</th>
+					      <th scope="col">Phone</th>
+					      <th scope="col">Message</th>
 					    </tr>
 					  </thead>
 					  <tbody>
 
-					  	@foreach($users as $user)
+					  	@foreach($messagess as $messages)
 					    <tr>
-					      <th scope="row">{{ $user->id }}</th>
-					      <td>{{ $user->name }}</td>
-					      <td>{{ $user->status }}</td>
-					      <td>
-						      	<form class="form-inline" action="{{ route('user.list.update', $user->id) }}" method="post">
-	                                @csrf
-	                                <input type="hidden" name="status" />
-	                                <button type="submit" class="btn btn-success">Active</button>
-	                             </form>
-                           </td>
+					      <th scope="row">{{ $messages->id }}</th>
+					      <td>{{ $messages->name }}</td>
+					      <td>{{ $messages->email }}</td>
+					      <td>{{ $messages->phone }}</td>
+					      <td>{{ $messages->message }}</td>
 					    </tr>
 					    @endforeach
 					  </tbody>

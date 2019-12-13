@@ -18,10 +18,11 @@ Route::post('/contact/post','HomeController@contactpost')->name('');
 Auth::routes();
 
 Route::get('/customer', 'HomeController@index')->name('');
-Route::get('/catering-service', 'HomeController@index2')->name('');
+Route::get('/catering-service', 'HomeController@index2')->name('chome');
 Route::post('/product.store','ProductController@ProductStore')->name('product.store');
 Route::get('/product-details/{id}', 'ProductController@productdetails')->name('productdetails');
 
+Route::post('/own-product/delete/{id}', 'ProductController@ownproductdetails')->name('ownproductdetails');
 
 
 Route::get('/carts', 'CartsController@index')->name('carts');
@@ -31,9 +32,13 @@ Route::post('/carts/delete/{id}', 'CartsController@destroy')->name('carts.delete
 
 Route::get('/checkout', 'CheckoutsController@index')->name('checkouts');
 Route::post('/checkout/store', 'CheckoutsController@store')->name('checkouts.store');
+Route::post('/order-delete/{id}', 'CheckoutsController@destroy')->name('order.delete');
 
 Route::get('/profile','ProfileController@profile')->name('profile');
-Route::post('/profile/update','ProfileController@profileupdate')->name('');
+Route::post('/profile/update','ProfileController@profileupdate')->name('profile.update');
+
+
+Route::get('/search', 'searchController@search')->name('search');
 
 
 Route::group(['prefix' => 'admin'], function(){
@@ -45,4 +50,10 @@ Route::group(['prefix' => 'admin'], function(){
 	  Route::get('/user-list', 'Admin\AdminController@userList')->name('admin.user.list');
 
 	  Route::post('/user-list-update/{id}', 'Admin\AdminController@userListUpdate')->name('user.list.update');
+
+	  Route::get('/shop-list', 'Admin\AdminController@shoplist')->name('admin.shoplist');
+	  Route::post('/shop-list-delete/{id}', 'Admin\AdminController@shoplistdelete')->name('shop.list.delete');
+
+	   Route::get('/messages', 'Admin\AdminController@messages')->name('admin.message');
+
 });

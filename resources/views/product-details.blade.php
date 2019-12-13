@@ -43,8 +43,8 @@
                             <h4>Category :{{ $products->category }}</h4>
                         </div>
                         <div class="price-box mt-16 mb-16">
-                            <span class="regular-price">£50.00</span>
-                            <span class="old-price"><del>£60.00</del></span>
+                            <span class="regular-price">Price: {{ $products->foodPrice }}</span>
+                            
                         </div>   
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, </p>
                         <div class="cart-button mt-20">
@@ -86,63 +86,44 @@
                             <br>
                             <div class="tab-pane fade" id="tab_review" role="tabpanel" aria-labelledby="nav_review">
                                 <div class="product-review">
-                                    <div class="customer-review">
-                                        <table class="table table-striped table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Prowin Themes</strong></td>
-                                                    <td class="text-right">09/04/2018</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <p>It’s both good and bad. If Nikon had achieved a high-quality wide lens camera with a 1 inch sensor, that would have been a very competitive product. So in that sense, it’s good for us. But actually, from the perspective of driving the 1 inch sensor market, we want to stimulate this market and that means multiple manufacturers.</p>
-                                                        <div class="product-ratings mt-10">
-                                                            <span class="good"><i class="icon-star"></i></span>
-                                                            <span class="good"><i class="icon-star"></i></span>
-                                                            <span class="good"><i class="icon-star"></i></span>
-                                                            <span class="good"><i class="icon-star"></i></span>
-                                                            <span><i class="icon-star"></i></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- end of customer-review -->
-                                    <form action="#" class="review-form">
-                                        <h5>Write a review</h5>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <label class="col-form-label"><span class="text-danger">*</span> Your Name</label>
-                                                <input type="text" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <label class="col-form-label"><span class="text-danger">*</span> Your Review</label>
-                                                <textarea class="form-control" required></textarea>
-                                                <div class="help-block pt-10"><span class="text-danger">Note:</span> HTML is not translated!</div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <label class="col-form-label"><span class="text-danger">*</span> Rating</label>
-                                                &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                                <input type="radio" value="1" name="rating">
-                                                &nbsp;
-                                                <input type="radio" value="2" name="rating">
-                                                &nbsp;
-                                                <input type="radio" value="3" name="rating">
-                                                &nbsp;
-                                                <input type="radio" value="4" name="rating">
-                                                &nbsp;
-                                                <input type="radio" value="5" name="rating" checked>
-                                                &nbsp;Good
-                                            </div>
-                                        </div>
-                                        <div class="buttons d-flex justify-content-end">
-                                            <button class="sqr-btn" type="submit">Continue</button>
-                                        </div>
-                                    </form> <!-- end of review-form -->
+
+
+
+
+
+
+
+
+
+
+                                    <div id="disqus_thread"></div>
+                                    <script>
+
+                                    /**
+                                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                    /*
+                                    var disqus_config = function () {
+                                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                    };
+                                    */
+                                    (function() { // DON'T EDIT BELOW THIS LINE
+                                    var d = document, s = d.createElement('script');
+                                    s.src = 'https://foysalshop.disqus.com/embed.js';
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                    })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                                                
+
+
+
+
+
+
+
                                 </div> <!-- end of product-review -->
                             </div>
                         </div>

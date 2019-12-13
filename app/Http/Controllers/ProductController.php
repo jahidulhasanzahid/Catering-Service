@@ -72,5 +72,16 @@ class ProductController extends Controller
 	 	$products = Product::find($id);
 	 	return view('product-details',compact('products'));
 	 }
+	 
+	 public function ownproductdetails($id) {
+	  $product = Product::find($id);
+	    if (!is_null($product)) {
+	      $product->delete();
+	    }else {
+	      return back();
+	    }
+	    session()->flash('success', 'Product has deleted !!');
+	    return back();
+		}
 
 }

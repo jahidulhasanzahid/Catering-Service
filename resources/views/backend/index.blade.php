@@ -7,9 +7,8 @@
     	<div class="col-md-4">
 			    <div class="nav flex-column nav-pills">
 			      <a class="nav-link" href="{{ url('/admin/user-list') }}">User List</a>
-			      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Food Item List</a>
-			      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Shop List</a>
-			      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Messages</a>
+			      <a class="nav-link" href="{{ url('/admin/shop-list') }}">Shop List</a>
+			      <a class="nav-link" href="{{ url('/admin/messages') }}">Messages</a>
 			    </div>
     	</div>
         <div class="col-md-8">

@@ -25,36 +25,47 @@ class ProfileController extends Controller
                   ->join('orders','carts.order_id','=','orders.id')
                   ->join('users','carts.user_id','=','users.id')
                   ->join('products','carts.product_id','=','products.id')
-                  ->select('orders.*','products.*')
+                  ->select('carts.user_id','carts.product_id','carts.product_quantity','carts.order_id','products.*','orders.*')
                   ->get();
 
-    	return view('profile',compact('orders'));
+      $infos = DB::table('userinfos')->where('UserID',Auth::User()->id)->get();
+      $products = DB::table('products')->where('shop_id',Auth::user()->id)->get();
+    	return view('profile',compact('orders','infos','products'));
     }
 
 
 
     public function profileupdate(Request $request){
-          $val = DB::table('userinfos')->where('userID',Auth::User()->id)->get();
-
-            if (isset($val)) {
+          $userID = $request->userID;
+          //dd($userID);
+          $id = 0;
+          $data = DB::table('userinfos')->where('userID',$userID)->get();
+          foreach($data as $dd){
+            $id = $dd->userID;
+          }
+          //dd($id);
+          if (Auth::user()->id == $id) {
               $updatePro = DB::table('userinfos')
                   ->where('userID', Auth::user()->id)
-                  ->update(['phone' => $request->phone,'shopName' => $request->shopName, 'address'=>$request->address,'foodTypeOne'=> $request->foodItemOne,'foodTypeTwo' =>$request->foodItemTwo, 'foodTypeThree' =>$request->foodItemThree, 'foodTypeFour' =>$request->foodItemFour, 'foodTypeFive' =>$request->foodItemFive]);
+                  ->update(['shopName' => $request->shopName,'address' => $request->address, 'phone'=>$request->phone,'foodTypeOne'=> $request->foodTypeOne,'foodTypeTwo' =>$request->foodTypeTwo, 'foodTypeThree' =>$request->foodTypeThree, 'foodTypeFour' =>$request->foodTypeFour, 'foodTypeFive' =>$request->foodTypeFive]);
             }
             else{
+
             $data = new Userinfo();
             $data->userID = Auth::user()->id;
-            $data->phone = $request->phone;
             $data->shopName = $request->shopName;
             $data->address = $request->address;
-            $data->foodTypeOne = $request->foodItemOne;
-            $data->foodTypeTwo = $request->foodItemTwo;
-            $data->foodTypeThree = $request->foodItemThree;
-            $data->foodTypeFour = $request->foodItemFour;
-            $data->foodTypeFive = $request->foodItemFive;
+            $data->phone = $request->phone;
+            $data->foodTypeOne = $request->foodTypeOne;
+            $data->foodTypeTwo = $request->foodTypeTwo;
+            $data->foodTypeThree = $request->foodTypeThree;
+            $data->foodTypeFour = $request->foodTypeFour;
+            $data->foodTypeFive = $request->foodTypeFive;
           
             $data->save();
+
         }
+      
             session()->flash('success', 'Your Profile Update successfully !!');
             return back();
     }

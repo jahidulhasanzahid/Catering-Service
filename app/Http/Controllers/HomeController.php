@@ -9,6 +9,7 @@ use Image;
 use File;
 use App\Product;
 use App\contact;
+use DB;
 
 class HomeController extends Controller
 {
@@ -47,6 +48,7 @@ class HomeController extends Controller
         $message->subject = $request->subject;
         $message->message = $request->message;
         $message->save();
+        session()->flash('success', 'Your Message has been Send !!');
         return view('contact');
     }
 
@@ -64,7 +66,8 @@ class HomeController extends Controller
     public function index2()
     {
        if(Auth::user()->type == 2){
-           return view('home2');
+           $infos = DB::table('userinfos')->where('userID',Auth::user()->id)->get();
+           return view('home2',compact('infos'));
         }
         else{
             return back();

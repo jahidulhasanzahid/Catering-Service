@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2019 at 08:13 PM
+-- Generation Time: Dec 13, 2019 at 09:18 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `admins` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'foysal', 'admin@admin.com', '$2y$10$zGXu5Z4grIhM.ARBRcwKFeXWstKgCcWVvFqPc6x9dVmXmcDIJ7Fg.', '2019-12-13 13:05:44', '2019-12-13 13:05:44');
 
 -- --------------------------------------------------------
 
@@ -72,7 +79,35 @@ INSERT INTO `carts` (`id`, `product_id`, `user_id`, `order_id`, `ip_address`, `p
 (29, 12, 4, 9, '127.0.0.1', 1, '2019-12-08 12:30:17', '2019-12-08 12:30:38'),
 (30, 13, 4, 10, '127.0.0.1', 1, '2019-12-08 12:32:40', '2019-12-08 12:32:49'),
 (31, 13, 4, 12, '127.0.0.1', 1, '2019-12-08 12:36:16', '2019-12-08 12:36:25'),
-(34, 13, 4, 16, '127.0.0.1', 1, '2019-12-11 13:07:14', '2019-12-11 13:08:18');
+(34, 13, 4, 16, '127.0.0.1', 1, '2019-12-11 13:07:14', '2019-12-11 13:08:18'),
+(35, 13, 4, 17, '127.0.0.1', 2, '2019-12-13 12:12:27', '2019-12-13 12:12:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'Rakiba Sultana', 'jahidulhasanzahid71@gmail.com', '01630765770', 'test', 'test', '2019-12-12 14:33:12', '2019-12-12 14:33:12'),
+(2, 'Jahidul Hasan Zahid', 'jahidulhasanzahid71@gmail.com', '01630765770', 'test', 'test', '2019-12-12 14:34:04', '2019-12-12 14:34:04'),
+(3, 'Jahidul Hasan Zahid', 'jahidulhasanzahid71@gmail.com', '01630765770', 'Test Two', 'test', '2019-12-12 14:34:40', '2019-12-12 14:34:40'),
+(4, 'Rakiba Sultana', 'jahidulhasanzahid71@gmail.com', '01630765770', 'Test Two', 'gfdg', '2019-12-12 14:35:16', '2019-12-12 14:35:16');
 
 -- --------------------------------------------------------
 
@@ -97,7 +132,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2019_10_11_173805_create_products_table', 1),
 (18, '2019_11_13_190540_create_settings_table', 3),
 (19, '2019_11_12_201346_create_carts_table', 4),
-(20, '2019_11_12_201749_create_orders_table', 4);
+(20, '2019_11_12_201749_create_orders_table', 4),
+(21, '2019_12_12_202604_create_contacts_table', 5),
+(22, '2019_12_12_204211_create_userinfos_table', 6);
 
 -- --------------------------------------------------------
 
@@ -134,18 +171,11 @@ INSERT INTO `orders` (`id`, `user_id`, `ip_address`, `name`, `phone_no`, `shippi
 (2, 6, '127.0.0.1', 'test', '4546', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:35:10', '2019-11-13 14:35:10', NULL, NULL, NULL),
 (3, 6, '127.0.0.1', 'test', '45747', 'test', 'jahidulhasanzahid071@gmail.com', 'test', 0, 0, 0, NULL, '2019-11-13 14:39:05', '2019-11-13 14:39:05', NULL, NULL, NULL),
 (4, 7, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-18 12:45:24', '2019-11-18 12:45:24', NULL, NULL, NULL),
-(5, 6, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-11-20 14:04:51', '2019-11-20 14:04:51', NULL, NULL, NULL),
-(6, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 11:36:35', '2019-12-08 11:36:35', NULL, NULL, NULL),
 (7, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:24:05', '2019-12-08 12:24:05', NULL, NULL, 5),
-(8, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:28:16', '2019-12-08 12:28:16', NULL, NULL, 5),
-(9, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:30:37', '2019-12-08 12:30:37', NULL, NULL, NULL),
-(10, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:32:49', '2019-12-08 12:32:49', NULL, NULL, 5),
 (11, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:33:27', '2019-12-08 12:33:27', NULL, NULL, 5),
-(12, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:36:25', '2019-12-08 12:36:25', NULL, NULL, 5),
-(13, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:36:53', '2019-12-08 12:36:53', NULL, NULL, 5),
 (14, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:37:35', '2019-12-08 12:37:35', NULL, NULL, 5),
 (15, 4, '127.0.0.1', 'Sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-08 12:38:11', '2019-12-08 12:38:11', NULL, NULL, 5),
-(16, 4, '127.0.0.1', 'Jahidul', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-11 13:08:18', '2019-12-11 13:08:18', NULL, NULL, 5);
+(17, 4, '127.0.0.1', 'sagor', '01630765770', 'T/10 NoorJahan Road, Mohammadpur', 'jahidulhasanzahid71@gmail.com', NULL, 0, 0, 0, NULL, '2019-12-13 12:12:58', '2019-12-13 12:12:58', NULL, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -183,9 +213,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `shopName`, `category`, `foodItemName`, `image`, `foodPrice`, `foodDetails`, `created_at`, `updated_at`, `shop_id`) VALUES
-(4, '', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36', NULL),
-(5, '', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25', NULL),
-(6, '', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22', NULL),
+(4, '', '', 'Dinner Bangla Joss', '1570818395.jpg', '255', 'foysal\'s Dine', '2019-10-11 12:26:36', '2019-10-11 12:26:36', 5),
+(5, '', '', 'Good Food', '1570823365.jpg', '355', 'forhad\'s Dine', '2019-10-11 13:49:25', '2019-10-11 13:49:25', 5),
+(6, '', 'Biriyani', 'Good Food', '1572373220.jpg', '344', 'Jahidul\'s Dine 2', '2019-10-29 12:20:22', '2019-10-29 12:20:22', 5),
 (12, 'Jahidul\'s Dine', 'Vegetables', 'Good Food', '1574279086.jpg', '220', 'Jahidul\'s Dine', '2019-11-20 13:44:46', '2019-11-20 13:44:46', NULL),
 (13, 'Jahidul\'s Dine', 'Fish', 'Good Food', '1575828407.jpg', '255', 'Jahidul\'s Dine', '2019-12-08 12:06:48', '2019-12-08 12:06:48', 5),
 (14, 'dfhfg', 'Biriyani', 'Dinner Bangla Joss', '1576090634.jpg', '255', 'dfhfg', '2019-12-11 12:57:15', '2019-12-11 12:57:15', 5);
@@ -205,6 +235,36 @@ CREATE TABLE `settings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userinfos`
+--
+
+CREATE TABLE `userinfos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `shopName` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foodTypeOne` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foodTypeTwo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foodTypeThree` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foodTypeFour` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foodTypeFive` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `userinfos`
+--
+
+INSERT INTO `userinfos` (`id`, `userID`, `shopName`, `address`, `phone`, `foodTypeOne`, `foodTypeTwo`, `foodTypeThree`, `foodTypeFour`, `foodTypeFive`, `created_at`, `updated_at`) VALUES
+(1, 5, 'Jahidul\'s Dine 2', 'T/10 NoorJahan Road, Mohammadpur', '01630765770', 'one', 'two', 'Three', 'test', 'test', '2019-12-13 02:52:20', '2019-12-13 02:52:20'),
+(2, 8, 'sagor dine', 'T/10 NoorJahan Road, Mohammadpur', '01630765770', 'test', 'test', 'test', 'test', 'test', '2019-12-13 11:58:27', '2019-12-13 11:58:27'),
+(3, 9, 'Joy Dine', 'T/10 NoorJahan Road, Mohammadpur', '01630765770', 'test', 'test', NULL, NULL, NULL, '2019-12-13 12:00:40', '2019-12-13 12:00:40');
 
 -- --------------------------------------------------------
 
@@ -234,7 +294,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `type`, `email_verified_at`, `passwo
 (4, 'sagor', 'sagor@yahoo.com', 1, NULL, '$2y$10$NBjW5NGr0ujD8NHF2L/PhO4Q5TI41hkPXnVcvCFxKKqZwtgCFaVgO', 'pending', NULL, '2019-10-28 11:05:17', '2019-10-28 11:05:17'),
 (5, 'Jahidul Hasan Zahid', 'jahidulhasanzahid71@gmail.com', 2, NULL, '$2y$10$0zO8VdJ0Hdy6WH8nBMoth.v.jdcI9KMRggnz0Jpt7S4GKz0HxCSgO', 'Active', NULL, '2019-11-12 11:53:42', '2019-11-12 11:53:49'),
 (6, 'Jahidul Hasan Zahid', 'jahidulhasanzahid071@gmail.com', 1, NULL, '$2y$10$yMHMSXdxG5kCQC8MeO2aCesGQzHMOj5pymEZmM7NkSok9Qbkpw7RK', 'pending', NULL, '2019-11-12 11:54:46', '2019-11-12 11:54:46'),
-(7, 'Rakiba Sultana', 'rakiba11@gmail.com', 2, NULL, '$2y$10$JVWlF2pezQ7DlJRWsNtIj.CVmvV1rnwmu20a5cpBgADvt7DOrazpu', 'Active', NULL, '2019-11-18 12:42:59', '2019-11-18 12:44:19');
+(7, 'Rakiba Sultana', 'rakiba11@gmail.com', 2, NULL, '$2y$10$JVWlF2pezQ7DlJRWsNtIj.CVmvV1rnwmu20a5cpBgADvt7DOrazpu', 'Active', NULL, '2019-11-18 12:42:59', '2019-11-18 12:44:19'),
+(8, 'sagor', 'sagor@hotmail.com', 2, NULL, '$2y$10$6vffzmrGQpDG7IGJDwUbPOpgYnRWf1GZ0.YGUYn1aJ98mgyEhU3Re', 'Active', NULL, '2019-12-13 11:52:26', '2019-12-13 11:53:14'),
+(9, 'Joy', 'joy@hotmail.com', 2, NULL, '$2y$10$Zv8/VKGBjcG471FcZNo1TebOcHT6wKfrcL20cpJHLqevGdc7F3LIe', 'pending', NULL, '2019-12-13 12:00:26', '2019-12-13 12:00:26');
 
 --
 -- Indexes for dumped tables
@@ -251,6 +313,12 @@ ALTER TABLE `admins`
 -- Indexes for table `carts`
 --
 ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -284,6 +352,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `userinfos`
+--
+ALTER TABLE `userinfos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -298,31 +372,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -331,10 +411,16 @@ ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `userinfos`
+--
+ALTER TABLE `userinfos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

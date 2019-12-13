@@ -110,7 +110,16 @@ class CheckoutsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {
-        //
+     
+        $order = Order::find($id);
+            if (!is_null($order)) {
+              $order->delete();
+            }else {
+              return redirect()->route('profile');
+            }
+            session()->flash('success', 'Order has deleted !!');
+            return back();
     }
 }

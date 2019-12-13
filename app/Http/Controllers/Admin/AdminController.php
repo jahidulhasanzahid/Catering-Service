@@ -7,13 +7,14 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Admin;
+use DB;
 
 class AdminController extends Controller
 {
-    // public function __construct()
-    //   {
-    //     $this->middleware('auth:admin');
-    //   }
+    public function __construct()
+      {
+        $this->middleware('auth:admin');
+      }
 
     public function index(){
     	return view('backend.index');
@@ -36,4 +37,30 @@ class AdminController extends Controller
       return redirect()->back();
     }
     
+
+    public function shoplist(){
+      $shops = DB::table('userinfos')->get();
+      return view('backend.shop-list',compact('shops'));
+    }
+
+     public function shoplistdelete($id)
+    {
+    
+    $shop = Cart::find($id);
+    if (!is_null($shop)) {
+      $shop->delete();
+    }else {
+      return redirect()->route('admin.sholist');
+    }
+    session()->flash('success', 'Shop has deleted !!');
+    return back();
+    }
+
+
+    public function messages(){
+      $messagess = DB::table('contacts')->get();
+      return view('backend.messages',compact('messagess'));
+    }
+
+
 }
